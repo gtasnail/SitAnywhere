@@ -1,5 +1,5 @@
 Config = {}
--- the rotatiosn are a little buggy but hey thats why its open source ;)
+-- the rotations are a little buggy but hey thats why its open source ;)
 Config.DistanceAllowed = 5.0
 
 Config.IncreaseKey = 175
