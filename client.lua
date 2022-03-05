@@ -132,27 +132,26 @@ local function SetNoClip(val)
                 local clipped = SittingEntity
                 local pPed = playerPed;
                 local isClippedVeh = isVeh;
-				local startpitch, startroll, startyaw = table.unpack(GetEntityRotation(clipped))
-				local pitch = startpitch
-				local roll = startroll
-				local yaw = startyaw
-				local mode = 1
-				local modetext = nil
-				local ClippedEntityCoords = GetEntityCoords(clipped)
-				startcoords = ClippedEntityCoords
-				print(startcoords..' Starting Point')
+		local startpitch, startroll, startyaw = table.unpack(GetEntityRotation(clipped))
+		local pitch = startpitch
+		local roll = startroll
+		local yaw = startyaw
+		local mode = 1
+		local modetext = nil
+		local ClippedEntityCoords = GetEntityCoords(clipped)
+		startcoords = ClippedEntityCoords
+		print(startcoords..' Starting Point')
                 if not isClippedVeh then
                     ClearPedTasksImmediately(pPed)
                 end
                 while isSitting do
-
-					local startpoint = #(GetEntityCoords(clipped) - startcoords)
-					if startpoint >= Config.DistanceAllowed then
-						SomeNotify('~r~Went to far')
-						Wait(0)
-						Toggle(false)
-						ToggleSitting()
-					end
+			local startpoint = #(GetEntityCoords(clipped) - startcoords)
+			if startpoint >= Config.DistanceAllowed then
+				SomeNotify('~r~Went to far')
+				Wait(0)
+				Toggle(false)
+				ToggleSitting()
+			end
                     Wait(0);
                     FreezeEntityPosition(clipped, true);
 					SetEntityDynamic(clipped, false)
@@ -220,26 +219,26 @@ local function SetNoClip(val)
 					SetEntityRotation(playerPed, pitch, roll, yaw, 0, false)
                     MoveInNoClip();
                 end
-                Wait(0);
-                FreezeEntityPosition(clipped, false);
-                SetEntityCollision(clipped, true, true);
-				SetEntityCompletelyDisableCollision(clipped, true, true)
-				SetEntityCoords(clipped, startcoords)
+		Wait(0);
+		FreezeEntityPosition(clipped, false);
+		SetEntityCollision(clipped, true, true);
+		SetEntityCompletelyDisableCollision(clipped, true, true)
+		SetEntityCoords(clipped, startcoords)
                 Wait(500);
-				if (IsPedFalling(clipped) and math.abs(1 - GetEntityHeightAboveGround(clipped)) > eps) then
-					while (IsPedStopped(clipped) or not IsPedFalling(clipped)) and not isSitting do
-						Wait(0);
-					end
-				end
-				while not isSitting do
-					Wait(0);
-					if (not IsPedFalling(clipped)) and (not IsPedRagdoll(clipped)) then
+		if (IsPedFalling(clipped) and math.abs(1 - GetEntityHeightAboveGround(clipped)) > eps) then
+			while (IsPedStopped(clipped) or not IsPedFalling(clipped)) and not isSitting do
+				Wait(0);
+			end
+		end
+		while not isSitting do
+			Wait(0);
+			if (not IsPedFalling(clipped)) and (not IsPedRagdoll(clipped)) then
 
-					end
-				end
+			end
+		end
             end)
         else
-			SetEntityCoords(clipped, startcoords)
+ 	    SetEntityCoords(clipped, startcoords)
             ResetEntityAlpha(SittingEntity)
         end
     end
