@@ -152,7 +152,6 @@ local function SetNoClip(val)
 						Wait(0)
 						Toggle(false)
 						ToggleSitting()
-						SetEntityCoords(clipped, startcoords)
 					end
                     Wait(0);
                     FreezeEntityPosition(clipped, true);
@@ -240,6 +239,7 @@ local function SetNoClip(val)
 				end
             end)
         else
+			SetEntityCoords(clipped, startcoords)
             ResetEntityAlpha(SittingEntity)
         end
     end
