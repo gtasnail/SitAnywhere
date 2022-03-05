@@ -8,4 +8,5 @@ Config.DecreaseKey = 174
 Config.ModeSwitchUp = 172
 Config.ModeSwitchDown = 173
 
+-- credits to https://github.com/qbcore-framework/qb-adminmenu for the noclip stuff
 ----Noclip controls and shit in client.lua line 70 :)
