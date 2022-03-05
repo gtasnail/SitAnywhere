@@ -38,7 +38,7 @@ local hidden = false
 function Toggle(Enabled)	
 	Enable = Enabled
 	TriggerEvent('chat:addMessage', {
-		color = {255, 0, 100},
+		color = {0, 255, 100},
 		args = {'Sit Anywhere', Enabled and 'on' or 'off'}
 	})
 	if Enabled then
