@@ -38,7 +38,7 @@ local hidden = false
 function Toggle(Enabled)	
 	Enable = Enabled
 	TriggerEvent('chat:addMessage', {
-		color = {0, 255, 100},
+		color = {255, 0, 100},
 		args = {'Sit Anywhere', Enabled and 'on' or 'off'}
 	})
 	if Enabled then
@@ -152,6 +152,7 @@ local function SetNoClip(val)
 						Wait(0)
 						Toggle(false)
 						ToggleSitting()
+						SetEntityCoords(clipped, startcoords)
 					end
                     Wait(0);
                     FreezeEntityPosition(clipped, true);
